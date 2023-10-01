@@ -13,4 +13,8 @@ export type UserRepositoryData = {
 
 export interface IUserRepository {
   create(userData: UserServiceData): Promise<UserRepositoryData>
+  findById(id: number): Promise<UserRepositoryData | null>
+  findByEmail(email: string): Promise<UserRepositoryData | null>
+  findByCpf(cpf: string): Promise<UserRepositoryData | null>
+  findByLogin(login: string): Promise<UserRepositoryData | null>
 }
