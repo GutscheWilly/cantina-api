@@ -1,0 +1,11 @@
+# @name create-user
+POST http://localhost:3333/users/create
+Content-Type: application/json
+
+{
+  "name": "user",
+  "email": "user@hotmail.com",
+  "login": "user12345",
+  "cpf": "06303977758",
+  "password": "123456787"
+}

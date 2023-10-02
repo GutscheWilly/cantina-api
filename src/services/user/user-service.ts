@@ -4,6 +4,8 @@ import { EmailInvalidError } from './errors/email-invalid-error';
 import { IUserService, UserServiceData } from './i-user-service';
 import { invalidEmail, invalidCpf } from '../../utils/validator';
 import { UserAlreadyRegisteredError } from './errors/user-already-registered-error';
+import { formatCpf } from '../../utils/formatter';
+import { cryptPassword } from '../../utils/crypt-password';
 
 export class UserService implements IUserService {
   constructor(
@@ -18,6 +20,8 @@ export class UserService implements IUserService {
     if (invalidCpf(userData.cpf)) {
       throw new CpfInvalidError();
     }
+
+    userData.cpf = formatCpf(userData.cpf);
 
     const userAlreadyRegistered = async () => {
       const [
@@ -36,6 +40,8 @@ export class UserService implements IUserService {
     if (await userAlreadyRegistered()) {
       throw new UserAlreadyRegisteredError();
     }
+
+    userData.password = await cryptPassword(userData.password);
 
     return await this.userRepository.create(userData);
   }
