@@ -5,7 +5,18 @@ Content-Type: application/json
 {
   "name": "user",
   "email": "user@hotmail.com",
-  "login": "user12345",
+  "login": "user_login",
   "cpf": "06303977758",
-  "password": "123456787"
+  "password": "123456789"
+}
+
+###
+
+# @name login-user
+POST http://localhost:3333/users/login
+Content-Type: application/json
+
+{
+  "login": "user_login",
+  "password": "123456789"
 }

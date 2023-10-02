@@ -5,7 +5,9 @@ import { IUserService, UserServiceData } from './i-user-service';
 import { invalidEmail, invalidCpf } from '../../utils/validator';
 import { UserAlreadyRegisteredError } from './errors/user-already-registered-error';
 import { formatCpf } from '../../utils/formatter';
-import { cryptPassword } from '../../utils/crypt-password';
+import { comparePassword, cryptPassword } from '../../utils/crypt-password';
+import { UserNotFoundError } from './errors/user-not-found-error';
+import { PasswordIncorrectError } from './errors/password-incorrect-error';
 
 export class UserService implements IUserService {
   constructor(
@@ -44,5 +46,21 @@ export class UserService implements IUserService {
     userData.password = await cryptPassword(userData.password);
 
     return await this.userRepository.create(userData);
+  }
+
+  async login(login: string, password: string): Promise<UserRepositoryData> {
+    const user = await this.userRepository.findByLogin(login);
+
+    if (!user) {
+      throw new UserNotFoundError();
+    }
+
+    const validPassword = await comparePassword(password, user.password);
+
+    if (!validPassword) {
+      throw new PasswordIncorrectError();
+    }
+
+    return user;
   }
 }

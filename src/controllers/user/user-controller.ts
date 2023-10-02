@@ -29,4 +29,26 @@ export class UserController implements IUserController {
       }
     });
   }
+
+  async login(app: FastifyInstance) {
+    const bodySchema = z.object({
+      login: z.string(),
+      password: z.string(),
+    });
+
+    app.post('/users/login', async (request, response) => {
+      const {
+        login,
+        password
+      } = bodySchema.parse(request.body);
+
+      try {
+        const user = await this.userService.login(login, password);
+        return response.status(201).send({ user: user });
+      }
+      catch (error) {
+        return response.status(400).send(error);
+      }
+    });
+  }
 }
