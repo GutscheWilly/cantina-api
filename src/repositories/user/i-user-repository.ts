@@ -17,4 +17,5 @@ export interface IUserRepository {
   findByEmail(email: string): Promise<UserRepositoryData | null>
   findByCpf(cpf: string): Promise<UserRepositoryData | null>
   findByLogin(login: string): Promise<UserRepositoryData | null>
+  delete(id: number): Promise<void>
 }

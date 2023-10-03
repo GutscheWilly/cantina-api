@@ -20,3 +20,8 @@ Content-Type: application/json
   "login": "user_login",
   "password": "123456789"
 }
+
+###
+
+# @name delete-user
+DELETE  http://localhost:3333/users/11/delete
