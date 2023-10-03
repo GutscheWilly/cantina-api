@@ -51,4 +51,22 @@ export class UserController implements IUserController {
       }
     });
   }
+
+  async delete(app: FastifyInstance) {
+    const paramsSchema = z.object({
+      id: z.string().transform( id => parseInt(id) ),
+    });
+
+    app.delete('/users/:id/delete', async (request, response) => {
+      const { id } = paramsSchema.parse(request.params);
+
+      try {
+        await this.userService.delete(id);
+        return response.status(204).send();
+      }
+      catch (error) {
+        return response.status(400).send(error);
+      }
+    });
+  }
 }

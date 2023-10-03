@@ -11,4 +11,5 @@ export type UserServiceData = {
 export interface IUserService {
   create(userData: UserServiceData): Promise<UserRepositoryData>
   login(login: string, password: string): Promise<UserRepositoryData>
+  delete(id: number): Promise<void>
 }

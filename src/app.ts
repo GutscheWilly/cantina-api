@@ -7,3 +7,4 @@ export const app = fastify();
 const userController = UserControllerFactory.create();
 app.register( () => userController.create(app) );
 app.register( () => userController.login(app) );
+app.register( () => userController.delete(app) );
