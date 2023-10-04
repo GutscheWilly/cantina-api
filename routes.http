@@ -25,3 +25,14 @@ Content-Type: application/json
 
 # @name delete-user
 DELETE  http://localhost:3333/users/11/delete
+
+###
+
+# @name update-user
+PUT http://localhost:3333/users/12/update
+Content-Type: application/json
+
+{
+  "name": "novo_nome",
+  "password": "nova_senha"
+}

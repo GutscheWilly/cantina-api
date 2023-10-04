@@ -18,4 +18,5 @@ export interface IUserRepository {
   findByCpf(cpf: string): Promise<UserRepositoryData | null>
   findByLogin(login: string): Promise<UserRepositoryData | null>
   delete(id: number): Promise<void>
+  update(id: number, userData: { name?: string | undefined, password?: string | undefined }): Promise<void>
 }

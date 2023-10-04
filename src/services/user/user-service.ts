@@ -73,4 +73,14 @@ export class UserService implements IUserService {
 
     await this.userRepository.delete(id);
   }
+
+  async update(id: number, userData: { name?: string | undefined, password?: string | undefined }): Promise<void> {
+    const user = await this.userRepository.findById(id);
+
+    if (!user) {
+      throw new UserNotFoundError();
+    }
+
+    await this.userRepository.update(id, userData);
+  }
 }
