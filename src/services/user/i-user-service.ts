@@ -12,4 +12,5 @@ export interface IUserService {
   create(userData: UserServiceData): Promise<UserRepositoryData>
   login(login: string, password: string): Promise<UserRepositoryData>
   delete(id: number): Promise<void>
+  update(id: number, userData: { name?: string | undefined, password?: string | undefined }): Promise<void>
 }

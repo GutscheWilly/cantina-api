@@ -27,5 +27,17 @@ O email, o login e o cpf são únicos para cada usuário.
 
 * Delete user - DELETE - http://localhost:3333/users/{id}/delete
 
+Substituir {id} pelo ID do usuário.
+
+* Update user - PUT - http://localhost:3333/users/{id}/update
+
+```
+{
+  "name": "novo_nome",
+  "password": "nova_senha"
+}
+```
 
 Substituir {id} pelo ID do usuário.
+
+"name" e "password" são opcionais no body.
