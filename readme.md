@@ -12,9 +12,9 @@
   "cpf":      "05803777729",
   "password": "12345678"
 }
-```
 
 O email, o login e o cpf são únicos para cada usuário.
+```
 
 * Login user - POST - http://localhost:3333/users/login
 
@@ -27,17 +27,18 @@ O email, o login e o cpf são únicos para cada usuário.
 
 * Delete user - DELETE - http://localhost:3333/users/{id}/delete
 
+```
 Substituir {id} pelo ID do usuário.
+```
 
 * Update user - PUT - http://localhost:3333/users/{id}/update
 
 ```
 {
-  "name": "novo_nome",
-  "password": "nova_senha"
+  "name": "new-name",
+  "password": "new-password"
 }
-```
 
 Substituir {id} pelo ID do usuário.
-
 "name" e "password" são opcionais no body.
+```
