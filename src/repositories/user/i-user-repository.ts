@@ -19,4 +19,5 @@ export interface IUserRepository {
   findByLogin(login: string): Promise<UserRepositoryData | null>
   delete(id: number): Promise<void>
   update(id: number, userData: { name?: string | undefined, password?: string | undefined }): Promise<void>
+  transaction(id: number, credit: number): Promise<void>
 }

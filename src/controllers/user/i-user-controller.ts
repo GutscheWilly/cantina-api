@@ -5,4 +5,5 @@ export interface IUserController {
   login(app: FastifyInstance): void
   delete(app: FastifyInstance): void
   update(app: FastifyInstance): void
+  transaction(app: FastifyInstance): void
 }

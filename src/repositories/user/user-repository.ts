@@ -79,4 +79,15 @@ export class UserRepository implements IUserRepository {
       }
     });
   }
+
+  async transaction(id: number, credit: number): Promise<void> {
+    await prisma.user.update({
+      where: {
+        id
+      },
+      data: {
+        credit
+      }
+    });
+  }
 }
