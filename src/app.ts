@@ -9,3 +9,4 @@ app.register( () => userController.create(app) );
 app.register( () => userController.login(app) );
 app.register( () => userController.delete(app) );
 app.register( () => userController.update(app) );
+app.register( () => userController.transaction(app) );

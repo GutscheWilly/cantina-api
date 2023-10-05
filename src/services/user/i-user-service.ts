@@ -13,4 +13,5 @@ export interface IUserService {
   login(login: string, password: string): Promise<UserRepositoryData>
   delete(id: number): Promise<void>
   update(id: number, userData: { name?: string | undefined, password?: string | undefined }): Promise<void>
+  transaction(id: number, value: number): Promise<void>
 }

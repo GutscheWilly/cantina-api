@@ -36,3 +36,13 @@ Content-Type: application/json
   "name": "novo_nome",
   "password": "nova_senha"
 }
+
+###
+
+# @name transaction
+PUT http://localhost:3333/users/12/transaction
+Content-Type: application/json
+
+{
+  "value": -250
+}

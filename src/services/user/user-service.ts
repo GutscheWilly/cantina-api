@@ -8,6 +8,7 @@ import { formatCpf } from '../../utils/formatter';
 import { comparePassword, cryptPassword } from '../../utils/crypt-password';
 import { UserNotFoundError } from './errors/user-not-found-error';
 import { PasswordIncorrectError } from './errors/password-incorrect-error';
+import { TransactionInvalidError } from './errors/transaction-invalid-error';
 
 export class UserService implements IUserService {
   constructor(
@@ -81,6 +82,27 @@ export class UserService implements IUserService {
       throw new UserNotFoundError();
     }
 
+    if (userData.password) {
+      userData.password = await cryptPassword(userData.password);
+    }
+
     await this.userRepository.update(id, userData);
+  }
+
+  async transaction(id: number, value: number): Promise<void> {
+    const user = await this.userRepository.findById(id);
+
+    if (!user) {
+      throw new UserNotFoundError();
+    }
+
+    const creditAfterTransaction = user.credit + value;
+    const invalidTransaction = creditAfterTransaction < 0;
+
+    if (invalidTransaction) {
+      throw new TransactionInvalidError();
+    }
+
+    await this.userRepository.transaction(id, creditAfterTransaction);
   }
 }

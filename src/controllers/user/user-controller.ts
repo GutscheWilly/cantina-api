@@ -93,4 +93,27 @@ export class UserController implements IUserController {
       }
     });
   }
+
+  async transaction(app: FastifyInstance) {
+    const paramsSchema = z.object({
+      id: z.string().transform( id => parseInt(id) ),
+    });
+
+    const bodySchema = z.object({
+      value: z.number(),
+    });
+
+    app.put('/users/:id/transaction', async (request, response) => {
+      const { id } = paramsSchema.parse(request.params);
+      const { value } = bodySchema.parse(request.body);
+
+      try {
+        await this.userService.transaction(id, value);
+        return response.status(204).send();
+      }
+      catch (error) {
+        return response.status(400).send(error);
+      }
+    });
+  }
 }
