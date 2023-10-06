@@ -54,3 +54,20 @@ Substituir {id} pelo ID do usuário.
 
 Substituir {id} pelo ID do usuário.
 ```
+
+### Student
+
+* Create student - POST - http://localhost:3333/students/create
+
+```
+{
+  "registration": "164008",
+  "class": "1-A",
+  "spendingLimit": 30,
+  "school": "Unifesp",
+  "userId": 14
+}
+
+Um estudante sempre deve estar associado a um único usuário, e vice-versa.
+Substitua o "userId" pelo ID do usuário.
+```
