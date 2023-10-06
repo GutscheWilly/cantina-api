@@ -16,4 +16,16 @@ model User {
   password  String
   credit    Float    @default(0)
   createdAt DateTime @default(now())
+  Student   Student?
+}
+
+model Student {
+  id            Int      @id @default(autoincrement())
+  registration  String
+  class         String
+  spendingLimit Float
+  school        String
+  createdAt     DateTime @default(now())
+  User          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId        Int      @unique
 }

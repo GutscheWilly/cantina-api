@@ -24,12 +24,12 @@ Content-Type: application/json
 ###
 
 # @name delete-user
-DELETE  http://localhost:3333/users/11/delete
+DELETE  http://localhost:3333/users/13/delete
 
 ###
 
 # @name update-user
-PUT http://localhost:3333/users/12/update
+PUT http://localhost:3333/users/13/update
 Content-Type: application/json
 
 {
@@ -40,9 +40,23 @@ Content-Type: application/json
 ###
 
 # @name transaction
-PUT http://localhost:3333/users/12/transaction
+PUT http://localhost:3333/users/13/transaction
 Content-Type: application/json
 
 {
-  "value": -250
+  "value": -200
+}
+
+###
+
+# @name create-student
+POST http://localhost:3333/students/create
+Content-Type: application/json
+
+{
+  "registration": "164008",
+  "class": "1-A",
+  "spendingLimit": 30,
+  "school": "unifesp",
+  "userId": 14
 }
