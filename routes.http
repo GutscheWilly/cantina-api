@@ -17,7 +17,7 @@ POST http://localhost:3333/users/login
 Content-Type: application/json
 
 {
-  "login": "user_login",
+  "login": "user@hotmail.com",
   "password": "123456789"
 }
 
@@ -40,11 +40,11 @@ Content-Type: application/json
 ###
 
 # @name transaction
-PUT http://localhost:3333/users/13/transaction
+PUT http://localhost:3333/users/14/transaction
 Content-Type: application/json
 
 {
-  "value": -200
+  "value": 200
 }
 
 ###
