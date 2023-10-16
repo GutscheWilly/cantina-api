@@ -15,4 +15,6 @@ export type StudentRepositoryData = {
 export interface IStudentRepository {
   create(studentData: StudentServiceData): Promise<StudentRepositoryData>
   findByUserId(userId: number): Promise<StudentRepositoryData | null>
+  findById(id: number): Promise<StudentRepositoryData | null>
+  update(id: number, studentData: { registration?: string | undefined, class?: string | undefined, spendingLimit?: number | undefined, school?: string | undefined }): Promise<void>
 }

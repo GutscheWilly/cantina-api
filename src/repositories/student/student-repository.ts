@@ -40,4 +40,36 @@ export class StudentRepository implements IStudentRepository {
       }
     });
   }
+
+  async findById(id: number): Promise<StudentRepositoryData | null> {
+    return await prisma.student.findUnique({
+      where: {
+        id
+      },
+      include: {
+        User: true
+      }
+    });
+  }
+
+  async update(id: number, studentData: { registration?: string | undefined, class?: string | undefined, spendingLimit?: number | undefined, school?: string | undefined }): Promise<void> {
+    const {
+      registration,
+      class: _class,
+      spendingLimit,
+      school,
+    } = studentData;
+
+    await prisma.student.update({
+      where: {
+        id
+      },
+      data: {
+        registration,
+        class: _class,
+        spendingLimit,
+        school,
+      }
+    });
+  }
 }

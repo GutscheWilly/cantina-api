@@ -29,4 +29,30 @@ export class StudentController implements IStudentController {
       }
     });
   }
+
+  async update(app: FastifyInstance) {
+    const paramsSchema = z.object({
+      id: z.string().transform( id => parseInt(id) ),
+    });
+
+    const bodySchema = z.object({
+      registration: z.string().optional(),
+      class: z.string().optional(),
+      spendingLimit: z.number().optional(),
+      school: z.string().optional(),
+    });
+
+    app.put('/students/:id/update', async (request, response) => {
+      const { id } = paramsSchema.parse(request.params);
+      const studentData = bodySchema.parse(request.body);
+
+      try {
+        await this.studentService.update(id, studentData);
+        return response.status(204).send();
+      }
+      catch (error) {
+        return response.status(400).send(error);
+      }
+    });
+  }
 }

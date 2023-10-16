@@ -15,3 +15,4 @@ app.register( () => userController.transaction(app) );
 //Student
 const studentController = StudentControllerFactory.create();
 app.register( () => studentController.create(app) );
+app.register( () => studentController.update(app) );

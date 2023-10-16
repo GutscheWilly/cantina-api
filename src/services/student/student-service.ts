@@ -2,6 +2,7 @@ import { IStudentRepository, StudentRepositoryData } from '../../repositories/st
 import { IUserRepository } from '../../repositories/user/i-user-repository';
 import { UserNotFoundError } from '../user/errors/user-not-found-error';
 import { SpendingLimitError } from './errors/spending-limit-error';
+import { StudentNotFoundError } from './errors/student-not-found-error';
 import { UserAssociatedStudentError } from './errors/user-associated-student-error';
 import { IStudentService, StudentServiceData } from './i-student-service';
 
@@ -31,5 +32,15 @@ export class StudentService implements IStudentService {
     }
 
     return await this.studentRepository.create(studentData);
+  }
+
+  async update(id: number, studentData: { registration?: string | undefined, class?: string | undefined, spendingLimit?: number | undefined, school?: string | undefined }): Promise<void> {
+    const student = await this.studentRepository.findById(id);
+
+    if (!student) {
+      throw new StudentNotFoundError();
+    }
+
+    await this.studentRepository.update(id, studentData);
   }
 }

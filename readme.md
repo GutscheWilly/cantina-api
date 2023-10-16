@@ -37,7 +37,7 @@ Substituir {id} pelo ID do usuário.
 
 ```
 {
-  "name": "new-name",
+  "name":     "new-name",
   "password": "new-password"
 }
 
@@ -61,13 +61,27 @@ Substituir {id} pelo ID do usuário.
 
 ```
 {
-  "registration": "164008",
-  "class": "1-A",
+  "registration":  "164008",
+  "class":         "1-A",
   "spendingLimit": 30,
-  "school": "Unifesp",
-  "userId": 14
+  "school":        "Unifesp",
+  "userId":        14
 }
 
 Um estudante sempre deve estar associado a um único usuário, e vice-versa.
 Substitua o "userId" pelo ID do usuário.
+```
+
+* Update student - PUT - http://localhost:3333/students/{id}/update
+
+```
+{
+  "registration":  "164008",
+  "class":         "1-C",
+  "spendingLimit": 40,
+  "school":        "unifesp"
+}
+
+Substitua o {id} pelo ID do estudante.
+Todos os atributos do body são opcionais.
 ```

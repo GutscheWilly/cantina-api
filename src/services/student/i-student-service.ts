@@ -10,4 +10,5 @@ export type StudentServiceData = {
 
 export interface IStudentService {
   create(studentData: StudentServiceData): Promise<StudentRepositoryData>
+  update(id: number, studentData: { registration?: string | undefined, class?: string | undefined, spendingLimit?: number | undefined, school?: string | undefined }): Promise<void>
 }
