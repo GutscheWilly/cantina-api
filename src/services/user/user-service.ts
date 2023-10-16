@@ -50,7 +50,11 @@ export class UserService implements IUserService {
   }
 
   async login(login: string, password: string): Promise<UserRepositoryData> {
-    const user = await this.userRepository.findByLogin(login);
+    let user = await this.userRepository.findByLogin(login);
+
+    if (!user) {
+      user = await this.userRepository.findByEmail(login);
+    }
 
     if (!user) {
       throw new UserNotFoundError();

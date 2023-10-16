@@ -25,6 +25,8 @@ O email, o login e o cpf são únicos para cada usuário.
   "login":    "user1234",
   "password": "12345678"
 }
+
+O atributo "login" pode ser de fato o login ou o email.
 ```
 
 * Delete user - DELETE - http://localhost:3333/users/{id}/delete
