@@ -60,3 +60,16 @@ Content-Type: application/json
   "school": "unifesp",
   "userId": 14
 }
+
+###
+
+# @name update-student
+PUT http://localhost:3333/students/3/update
+Content-Type: application/json
+
+{
+  "registration": "164008",
+  "class": "1-D",
+  "spendingLimit": 40,
+  "school": "unifesp"
+}
