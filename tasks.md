@@ -11,7 +11,7 @@
 
 # Order
 * [X] ~~*create*~~ [2023-10-17]
-* [ ] get all from user
+* [X] ~~*get all from user*~~ [2023-10-17]
 
 # Product
 * [ ] create

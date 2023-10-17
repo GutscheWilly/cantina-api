@@ -27,4 +27,22 @@ export class OrderController implements IOrderController {
       }
     });
   }
+
+  async getAllFromUserId(app: FastifyInstance) {
+    const paramsSchema = z.object({
+      userId: z.string().transform( id => parseInt(id) )
+    });
+
+    app.get('/orders/getAll/:userId', async (request, response) => {
+      const { userId } = paramsSchema.parse(request.params);
+
+      try {
+        const orders = await this.orderService.getAllFromUserId(userId);
+        return response.status(200).send({ orders: orders });
+      }
+      catch (error) {
+        return response.status(400).send(error);
+      }
+    });
+  }
 }

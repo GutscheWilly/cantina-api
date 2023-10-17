@@ -8,4 +8,5 @@ export type OrderServiceData = {
 
 export interface IOrderService {
   create(orderData: OrderServiceData): Promise<OrderRepositoryData>
+  getAllFromUserId(userId: number): Promise<OrderRepositoryData[]>
 }
