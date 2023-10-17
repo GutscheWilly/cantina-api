@@ -22,4 +22,12 @@ export class OrderRepository implements IOrderRepository {
       }
     });
   }
+
+  async getAllFromUserId(userId: number): Promise<OrderRepositoryData[]> {
+    return await prisma.order.findMany({
+      where: {
+        userId
+      }
+    });
+  }
 }

@@ -18,4 +18,14 @@ export class OrderService implements IOrderService {
 
     return await this.orderRepository.create(orderData);
   }
+
+  async getAllFromUserId(userId: number): Promise<OrderRepositoryData[]> {
+    const user = await this.userRepository.findById(userId);
+
+    if (!user) {
+      throw new UserNotFoundError();
+    }
+
+    return await this.orderRepository.getAllFromUserId(userId);
+  }
 }

@@ -81,7 +81,12 @@ POST http://localhost:3333/orders/create
 Content-Type: application/json
 
 {
-  "status": "pedent",
-  "pickupTime": "16h",
+  "status": "preparation",
+  "pickupTime": "12h",
   "userId": 14
 }
+
+###
+
+# @name get-all-from-user-id
+GET http://localhost:3333/orders/getAll/14

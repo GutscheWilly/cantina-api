@@ -21,3 +21,4 @@ app.register( () => studentController.update(app) );
 //Order
 const orderController = OrderControllerFactory.create();
 app.register( () => orderController.create(app) );
+app.register( () => orderController.getAllFromUserId(app) );

@@ -87,3 +87,23 @@ Substitua o "userId" pelo ID do usuário.
 Substitua o {id} pelo ID do estudante.
 Todos os atributos do body são opcionais.
 ```
+
+### Order
+
+* Create order - POST - http://localhost:3333/orders/create
+
+```
+{
+  "status":     "preparation",
+  "pickupTime": "12h",
+  "userId":     14
+}
+
+Todo pedido deve estar associado a um usuário pelo "userId".
+```
+
+* Get all orders by user id - GET - http://localhost:3333/orders/getAll/{userId}
+
+```
+Substitua {userId} pelo ID do usuário.
+```

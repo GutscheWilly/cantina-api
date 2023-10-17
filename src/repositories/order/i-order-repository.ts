@@ -10,4 +10,5 @@ export type OrderRepositoryData = {
 
 export interface IOrderRepository {
   create(orderData: OrderServiceData): Promise<OrderRepositoryData>
+  getAllFromUserId(userId: number): Promise<OrderRepositoryData[]>
 }
