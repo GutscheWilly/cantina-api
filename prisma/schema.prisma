@@ -17,6 +17,7 @@ model User {
   credit    Float    @default(0)
   createdAt DateTime @default(now())
   Student   Student?
+  Orders    Order[]
 }
 
 model Student {
@@ -26,6 +27,38 @@ model Student {
   spendingLimit Float
   school        String
   createdAt     DateTime @default(now())
-  User          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId        Int      @unique
+  User          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Order {
+  id         Int             @id @default(autoincrement())
+  status     String
+  pickupTime String
+  createdAt  DateTime        @default(now())
+  userId     Int
+  User       User            @relation(fields: [userId], references: [id])
+  Products   Order_Product[]
+}
+
+model Product {
+  id          Int             @id @default(autoincrement())
+  name        String
+  description String
+  price       Float
+  calories    Float
+  servingSize Float
+  createdAt   DateTime        @default(now())
+  Orders      Order_Product[]
+}
+
+model Order_Product {
+  id        Int     @id @default(autoincrement())
+  orderId   Int
+  productId Int
+  quantity  Int
+  Order     Order   @relation(fields: [orderId], references: [id])
+  Product   Product @relation(fields: [productId], references: [id])
+
+  @@unique([orderId, productId])
 }
