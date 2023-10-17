@@ -73,3 +73,15 @@ Content-Type: application/json
   "spendingLimit": 40,
   "school": "unifesp"
 }
+
+###
+
+# @name create-order
+POST http://localhost:3333/orders/create
+Content-Type: application/json
+
+{
+  "status": "pedent",
+  "pickupTime": "16h",
+  "userId": 14
+}

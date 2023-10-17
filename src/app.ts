@@ -1,6 +1,7 @@
 import { fastify } from 'fastify';
 import { UserControllerFactory } from './factories/user-controller-factory';
 import { StudentControllerFactory } from './factories/student-controller-factory';
+import { OrderControllerFactory } from './factories/order-controller-factory';
 
 export const app = fastify();
 
@@ -16,3 +17,7 @@ app.register( () => userController.transaction(app) );
 const studentController = StudentControllerFactory.create();
 app.register( () => studentController.create(app) );
 app.register( () => studentController.update(app) );
+
+//Order
+const orderController = OrderControllerFactory.create();
+app.register( () => orderController.create(app) );
