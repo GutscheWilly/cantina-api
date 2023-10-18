@@ -107,3 +107,17 @@ Todo pedido deve estar associado a um usuário pelo "userId".
 ```
 Substitua {userId} pelo ID do usuário.
 ```
+
+### Product
+
+* Create product - POST - http://localhost:3333/products/create
+
+```
+{
+  "name":        "coxinha",
+  "description": "salgado",
+  "price":       6,
+  "calories":    300,
+  "servingSize": 50
+}
+```
