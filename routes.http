@@ -90,3 +90,17 @@ Content-Type: application/json
 
 # @name get-all-from-user-id
 GET http://localhost:3333/orders/getAll/14
+
+###
+
+# @name create-prodcut
+POST http://localhost:3333/products/create
+Content-Type: application/json
+
+{
+  "name": "coca",
+  "description": "refri",
+  "price": 8,
+  "calories": 120,
+  "servingSize": 50
+}
