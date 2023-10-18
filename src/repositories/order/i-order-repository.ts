@@ -1,4 +1,5 @@
 import { OrderServiceData } from '../../services/order/i-order-service';
+import { OrderProductRepositoryData } from '../order-product/i-order-product-repository';
 
 export type OrderRepositoryData = {
   id: number
@@ -6,6 +7,7 @@ export type OrderRepositoryData = {
   pickupTime: string
   createdAt: Date
   userId: number
+  Products: OrderProductRepositoryData[]
 };
 
 export interface IOrderRepository {
