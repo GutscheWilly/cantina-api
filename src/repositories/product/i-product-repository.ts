@@ -12,4 +12,5 @@ export type ProductRepositoryData = {
 
 export interface IProductRepository {
   create(productData: ProductServiceData): Promise<ProductRepositoryData>
+  findById(id: number): Promise<ProductRepositoryData | null>
 }

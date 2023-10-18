@@ -93,7 +93,7 @@ GET http://localhost:3333/orders/getAll/14
 
 ###
 
-# @name create-prodcut
+# @name create-product
 POST http://localhost:3333/products/create
 Content-Type: application/json
 
@@ -103,4 +103,16 @@ Content-Type: application/json
   "price": 8,
   "calories": 120,
   "servingSize": 50
+}
+
+###
+
+# @name create-order-product
+POST http://localhost:3333/order-product/create
+Content-Type: application/json
+
+{
+  "orderId": 2,
+  "productId": 2,
+  "quantity": 10
 }

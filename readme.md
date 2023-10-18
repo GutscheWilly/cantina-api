@@ -121,3 +121,19 @@ Substitua {userId} pelo ID do usuário.
   "servingSize": 50
 }
 ```
+
+### Order-Product
+
+* Create order-product - POST - http://localhost:3333/order-product/create
+
+```
+{
+  "orderId":   1,
+  "productId": 2,
+  "quantity":  8
+}
+
+É necessário relacionar o "orderId" e o "productId" para adicionar produtos únicos ao pedido.
+Essa associação pode ocorrer somente uma vez. 
+Então, sua quantidade é dada pelo atributo "quantity".
+```

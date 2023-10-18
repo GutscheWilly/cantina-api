@@ -22,4 +22,12 @@ export class ProductRepository implements IProductRepository {
       }
     });
   }
+
+  async findById(id: number): Promise<ProductRepositoryData | null> {
+    return await prisma.product.findUnique({
+      where: {
+        id
+      }
+    });
+  }
 }

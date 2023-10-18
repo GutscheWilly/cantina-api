@@ -3,6 +3,7 @@ import { UserControllerFactory } from './factories/user-controller-factory';
 import { StudentControllerFactory } from './factories/student-controller-factory';
 import { OrderControllerFactory } from './factories/order-controller-factory';
 import { ProductControllerFactory } from './factories/product-controller-factory';
+import { OrderProductControllerFactory } from './factories/order-product-controller-factory';
 
 export const app = fastify();
 
@@ -27,3 +28,7 @@ app.register( () => orderController.getAllFromUserId(app) );
 //Product
 const productController = ProductControllerFactory.create();
 app.register( () => productController.create(app) );
+
+//Order-Product
+const orderProductController = OrderProductControllerFactory.create();
+app.register( () => orderProductController.create(app) );
