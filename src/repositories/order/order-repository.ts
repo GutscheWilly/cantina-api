@@ -19,6 +19,9 @@ export class OrderRepository implements IOrderRepository {
             id: userId
           }
         }
+      },
+      include: {
+        Products: true
       }
     });
   }
@@ -27,6 +30,13 @@ export class OrderRepository implements IOrderRepository {
     return await prisma.order.findMany({
       where: {
         userId
+      },
+      include: {
+        Products: {
+          include: {
+            Product: true
+          }
+        }
       }
     });
   }
@@ -35,6 +45,9 @@ export class OrderRepository implements IOrderRepository {
     return await prisma.order.findUnique({
       where: {
         id
+      },
+      include: {
+        Products: true
       }
     });  
   }

@@ -12,9 +12,12 @@
 # Order
 * [X] ~~*create*~~ [2023-10-17]
 * [X] ~~*get all from user*~~ [2023-10-17]
+* [ ] get by id
 
 # Product
 * [X] ~~*create*~~ [2023-10-17]
+* [ ] get by id
 
 # Order_Product
-* [ ] create
+* [X] ~~*create*~~ [2023-10-18]
+* [ ] get by orderId and productId

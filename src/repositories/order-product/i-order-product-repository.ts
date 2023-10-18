@@ -6,7 +6,7 @@ export type OrderProductRepositoryData = {
   orderId: number
   productId: number
   quantity: number
-  Product: ProductRepositoryData
+  Product?: ProductRepositoryData
 }
 
 export interface IOrderProductRepository {

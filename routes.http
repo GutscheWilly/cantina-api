@@ -88,7 +88,7 @@ Content-Type: application/json
 
 ###
 
-# @name get-all-from-user-id
+# @name get-all-orders-from-user-id
 GET http://localhost:3333/orders/getAll/14
 
 ###
@@ -112,7 +112,7 @@ POST http://localhost:3333/order-product/create
 Content-Type: application/json
 
 {
-  "orderId": 2,
-  "productId": 2,
-  "quantity": 10
+  "orderId": 1,
+  "productId": 1,
+  "quantity": 15
 }
