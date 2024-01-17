@@ -116,3 +116,14 @@ Content-Type: application/json
   "productId": 1,
   "quantity": 15
 }
+
+###
+
+# @name crate-product-restriction
+POST http://localhost:3333/product-restriction/create
+Content-Type: application/json
+
+{
+  "studentId": 3,
+  "productId": 1
+}

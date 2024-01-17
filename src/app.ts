@@ -4,6 +4,7 @@ import { StudentControllerFactory } from './factories/student-controller-factory
 import { OrderControllerFactory } from './factories/order-controller-factory';
 import { ProductControllerFactory } from './factories/product-controller-factory';
 import { OrderProductControllerFactory } from './factories/order-product-controller-factory';
+import { ProductRestrictionFactory } from './factories/product-restriction-factory';
 
 export const app = fastify();
 
@@ -32,3 +33,7 @@ app.register( () => productController.create(app) );
 //Order-Product
 const orderProductController = OrderProductControllerFactory.create();
 app.register( () => orderProductController.create(app) );
+
+//Product-Restriction
+const productRestrictionController = ProductRestrictionFactory.create();
+app.register( () => productRestrictionController.create(app) );

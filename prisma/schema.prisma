@@ -21,14 +21,15 @@ model User {
 }
 
 model Student {
-  id            Int      @id @default(autoincrement())
-  registration  String
-  class         String
-  spendingLimit Float
-  school        String
-  createdAt     DateTime @default(now())
-  userId        Int      @unique
-  User          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id                 Int                  @id @default(autoincrement())
+  registration       String
+  class              String
+  spendingLimit      Float
+  school             String
+  createdAt          DateTime             @default(now())
+  userId             Int                  @unique
+  User               User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  ProductRestriction ProductRestriction[]
 }
 
 model Order {
@@ -42,14 +43,15 @@ model Order {
 }
 
 model Product {
-  id          Int             @id @default(autoincrement())
-  name        String
-  description String
-  price       Float
-  calories    Float
-  servingSize Float
-  createdAt   DateTime        @default(now())
-  Orders      Order_Product[]
+  id                 Int                  @id @default(autoincrement())
+  name               String
+  description        String
+  price              Float
+  calories           Float
+  servingSize        Float
+  createdAt          DateTime             @default(now())
+  Orders             Order_Product[]
+  ProductRestriction ProductRestriction[]
 }
 
 model Order_Product {
@@ -61,4 +63,14 @@ model Order_Product {
   Product   Product @relation(fields: [productId], references: [id])
 
   @@unique([orderId, productId])
+}
+
+model ProductRestriction {
+  id        Int     @id @default(autoincrement())
+  studentId Int
+  productId Int
+  Student   Student @relation(fields: [studentId], references: [id])
+  Product   Product @relation(fields: [productId], references: [id])
+
+  @@unique([studentId, productId])
 }

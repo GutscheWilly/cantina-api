@@ -137,3 +137,14 @@ Substitua {userId} pelo ID do usuário.
 Essa associação pode ocorrer somente uma vez. 
 Então, sua quantidade é dada pelo atributo "quantity".
 ```
+
+### Product Restriction
+
+* Create - POST - http://localhost:3333/product-restriction/create
+
+```
+{
+  "studentId": 3,
+  "productId": 1
+}
+```
