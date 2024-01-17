@@ -21,3 +21,6 @@
 # Order_Product
 * [X] ~~*create*~~ [2023-10-18]
 * [ ] get by orderId and productId
+
+# Product Restriction 
+* [X] create
